@@ -23,7 +23,7 @@ Identifying communities with poor geographic access to healthcare can help healt
    [WorldPop Nigeria Population v3.0 Data](https://data.worldpop.org/repo/wopr/NGA/population/v3.0/)
 
 3. **Operational Ward Boundaries** – GRID3 NGA – Operational Wards v3.0, Center for Integrated Earth System Information Network (CIESIN), Columbia University.
-   [GRID3 Nigeria Operational Wards v3.0]([[https://www.arcgis.com/home/item.html?id=45cd2ef592094d12aca43113a90a6054&utm_source=chatgpt.com](https://data.grid3.org/datasets/GRID3::grid3-nga-operational-wards-v3-0/about)
+   [GRID3 Nigeria Operational Wards v3.0]([[https://www.arcgis.com/home/item.html?id=45cd2ef592094d12aca43113a90a6054&utm_source=chatgpt.com](https://grid3.org/geospatial-data-nigeria)
 
 ## What I Would Build
 
