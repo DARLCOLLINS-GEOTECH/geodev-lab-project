@@ -1,4 +1,4 @@
-# Healthcare Accessibility in Abuja Municipal Area Council (AMAC)....
+# Healthcare Accessibility in Abuja Municipal Area Council (AMAC)
 
 ## The Question
 
