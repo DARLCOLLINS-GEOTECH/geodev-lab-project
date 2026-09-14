@@ -4,7 +4,7 @@
 
 ## 1. GRID3 Nigeria Operational Wards v3.0
 
-- **Source:** GRID3 Data Hub
+- **Source:** GRID3 Data Hub https://data.grid3.org/datasets/GRID3::grid3-nga-operational-wards-v3-0/about 
 - **Dataset version:** v3.0
 - **Release:** July 2026
 - **Downloaded:** 13 September 2026
@@ -15,34 +15,16 @@
 ### Columns
 
 The layer contains the following fields:
-
-- `OBJECTID`
-- `country`
-- `iso3`
-- `state`
-- `statecode`
-- `lga`
-- `lga_alt_names`
-- `ward`
-- `ward_alt_names`
-- `ward_v1_grid3`
-- `rd_in_grid3_ward`
-- `multipart_count`
-- `source`
-- `date`
-- `area_sqkm`
+`OBJECTID`,`country`,`iso3`,`state`,`statecode`,`lga`,`lga_alt_names`,`ward`,`ward_alt_names`,`ward_v1_grid3`,`rd_in_grid3_ward`,`multipart_count`,`source`,`date`,`area_sqkm`
 
 ### Column types
-
 - `OBJECTID` — Integer64
 - `multipart_count` — Real
 - `area_sqkm` — Real
 - Remaining fields — String/Text
 
 ### Null values
-
 No null values were observed in the following important fields:
-
 - `OBJECTID`
 - `country`
 - `state`
@@ -50,13 +32,11 @@ No null values were observed in the following important fields:
 - `ward`
 - `area_sqkm`
 
-Some of the alternative-name or supporting metadata fields may contain
-blank/null values where an alternative name or corresponding value does
-not exist.
+Some of the alternative-name or supporting metadata fields contains blank/null values where an alternative name or corresponding value does not exist.
 
 ### Coverage and completeness
 
-The ward layer covers the study LGA fully, with no obvious spatial gaps
+The ward layer covers my study LGA fully, with no obvious spatial gaps
 observed within the study area.
 
 The dataset should, however, be treated as an operational rather than an
@@ -67,38 +47,32 @@ have not yet been fully validated by all relevant government authorities.
 
 ## 2. GRID3 Nigeria Health Facilities v3.0
 
-- **Source:** GRID3 Data Hub
+- **Source:** GRID3 Data Hub https://data.grid3.org/datasets/827e3638dc204f4b9ddbbd19b00954d6/about 
 - **Dataset version:** v3.0
 - **Release:** August 2026
 - **Downloaded:** 13 September 2026
+- **Number of features/rows:** 41,778
 - **Geometry type:** Point
 - **Format:** Vector dataset
-- **Number of features/rows:** **[ENTER FEATURE COUNT FROM QGIS]**
+
 
 ### Columns
 
 The GRID3 health-facility dataset uses a standardized health-facility
 attribute structure. Important fields include:
 
-- `OBJECTID`
-- `globalid`
+- `OBJECTID`,`uniqueid`,`latitude`,`longitude`,`country`,`iso`,`state_standard`,`lga_standard`,`ward_standard`,`ward_bdry`,`rd_in_grid3_ward`,`facility_name`,`alt_name`,`settlement_name`,`facility_level`,`facility_type`,`facility_ownership`,`facility_ownership_type`,`functional`,`date_created`,
 - `nhfr_uid`
 - `nhfr_facility_code`
-- `country`
-- `iso`
-- `state`
-- `lga`
+- 
 - `lga_name_disagreement`
-- `ward`
-- `ward_name_disagreement`
-- `facility_name`
-- `facility_name_source`
-- `ownership`
-- `ownership_type`
-- `facility_level`
+- 
+- 
+- 
+- 
+- 
 - `facility_level_option`
-- `latitude`
-- `longitude`
+- 
 - `geocoordinates_source`
 - `last_updated`
 
