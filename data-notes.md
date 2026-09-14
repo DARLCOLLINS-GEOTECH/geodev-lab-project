@@ -256,105 +256,85 @@ The boundaries are operational GIS boundaries and should not necessarily be inte
 - **Extraction tool:** QuickOSM plugin in QGIS
 - **Extraction date:** 13 September 2026
 - **Query key:** `highway`
-- **Query values:** All relevant highway/road classes
+- **Query values:** Tertiary
 - **Dataset type:** Vector
 - **Geometry type:** LineString / MultiLineString
-- **Number of features/rows:** **[ENTER FEATURE COUNT FROM QGIS]**
+- **Number of features/rows:** 843
 
 ### Columns
 
-The exact columns returned by QuickOSM depend on the OpenStreetMap tags
-available for the features in the selected study area.
+The layer contains the following fields:
 
-Common road attributes include:
-
+- `full_id`
 - `osm_id`
 - `osm_type`
-- `name`
 - `highway`
-- `surface`
-- `lanes`
+- `covered`
+- `bridge:movable`
+- `maxspeed:backward`
+- `lane_markings`
 - `maxspeed`
-- `oneway`
+- `smoothness`
+- `ford`
+- `maxheight`
+- `layer`
 - `bridge`
-- `tunnel`
-- `access`
-- `service`
-
-Additional OSM tag fields may also occur.
-
-**Exact fields in downloaded layer:**  
-**[COPY THE FIELD NAMES FROM `Layer Properties → Fields`]**
-
-### Column types
-
-Most OpenStreetMap descriptive attributes are stored as String/Text
-because OSM tags are primarily key-value text pairs.
-
-Typical types include:
-
-- `osm_id` — Integer64 or String, depending on the QuickOSM output
-- `osm_type` — String
-- `name` — String
-- `highway` — String
-- `surface` — String
-- `lanes` — String or Integer depending on output
-- `maxspeed` — String
-- `oneway` — String
-- Other OSM tags — generally String/Text
-
-### Null values
-
-Null values are common and expected in OpenStreetMap road data.
-
-For example, many roads may have a `highway` classification but may not
-have information for:
-
+- `junction`
+- `old_name`
+- `surface`
+- `oneway`
 - `name`
-- `surface`
 - `lanes`
-- `maxspeed`
-- `oneway`
-- `bridge`
-- `access`
 
-The `highway` attribute should normally be populated for features returned
-through a `highway` query.
+### Column Types
 
-**Recorded null result:** **[ENTER YOUR QGIS NULL CHECK RESULT HERE]**
+All attribute columns are stored as **String/Text**.
+
+### Null Values
+
+Important missing values include:
+
+| Field | NULL Values |
+|---|---:|
+| `name` | 689 |
+| `surface` | 547 |
+| `lanes` | 772 |
+| `maxspeed` | 842 |
+| `oneway` | 388 |
+| `bridge` | 778 |
+
+The `highway` field is fully populated.
 
 ### Coverage and completeness
 
 The road extraction covers the selected study-area extent.
 
-However, OpenStreetMap is a continuously updated volunteered geographic
-database. Road coverage and attribute completeness may therefore vary
-between locations.
+However, OpenStreetMap is a continuously updated volunteered geographic database. Road coverage and attribute completeness may therefore vary between locations.
 
-A visual inspection should be carried out against satellite imagery or
-another reference basemap to identify possible missing roads, incomplete
-connections, or incorrectly classified road segments.
-
-The date of extraction is important because OpenStreetMap data may change
-after the dataset has been downloaded.
+A visual inspection was carried out against satellite imagery and another reference basemap to identify possible missing roads, incomplete connections, or incorrectly classified road segments.
 
 ---
 
+# Overall Data Quality Summary
+
+| Dataset | Main Type | Records / Cells | Geometry / Raster Type | Main Observation |
+|---|---|---:|---|---|
+| GRID3 Operational Wards v3.0 | Vector | 5,872 | MultiPolygon | Covers 24 states/FCT rather than all Nigeria |
+| GRID3 Health Facilities v3.0 | Vector | 41,778 | Point | 6,004 records have no coordinates; covers 24 states/FCT |
+| GRID3/WorldPop Population Master Grid | Raster | 11,532 × 14,392 | Approx. 100 m raster |covers Nigeria extent|
+| GRID3 Operational LGA Boundaries | Vector | 774 | MultiPolygon | Complete nationwide LGA coverage |
+| OSM Roads / QuickOSM | Vector | 843 raw features | LineString / MultiLineString |differing extents|
+
 ## Data Quality Summary
 
-The five datasets represent different spatial data types and therefore
-require different quality checks:
+The five datasets represent different spatial data types and therefore required different quality checks:
 
-- The Operational Wards and LGA datasets provide polygon administrative
-  boundaries.
+- The Operational Wards and LGA datasets provide polygon administrative boundaries.
 - The Health Facilities dataset contains point locations.
 - The Population dataset is a gridded raster surface.
 - The OpenStreetMap Roads dataset contains line features.
-- Null values in optional descriptive fields do not necessarily indicate
-  an error.
-- Administrative boundary completeness should be checked visually.
-- Health facility and OpenStreetMap completeness should not be assumed
-  solely from the absence of visible gaps.
-- Raster `NoData` values should be distinguished from valid zero values.
-- All datasets should be checked for coordinate reference system,
-  spatial extent, geometry validity and consistency before analysis.
+- Null values in optional descriptive fields do not necessarily indicate an error.
+- Administrative boundary completeness was checked visually.
+- Health facility and OpenStreetMap completeness was not assumed solely from the absence of visible gaps.
+- Raster `NoData` values were distinguished from valid zero values.
+- All datasets was checked for coordinate reference system, spatial extent, geometry validity and consistency before analysis.
