@@ -12,27 +12,32 @@
 - **Geometry type:** Polygon / MultiPolygon
 - **Format:** Vector dataset
 
-### Columns
+### Columns and Data Types
 
-The layer contains the following fields:
-`OBJECTID`,`country`,`iso3`,`state`,`statecode`,`lga`,`lga_alt_names`,`ward`,`ward_alt_names`,`ward_v1_grid3`,`rd_in_grid3_ward`,`multipart_count`,`source`,`date`,`area_sqkm`
+| Column | Type |
+|---|---|
+| `country` | String |
+| `iso3` | String |
+| `state` | String |
+| `statecode` | String |
+| `lga` | String |
+| `lga_alt_names` | String |
+| `ward` | String |
+| `ward_alt_names` | String |
+| `ward_v1_grid3` | String |
+| `ward_in_grid3_ward_list` | Real/Float |
+| `multipart_count` | Real/Float |
+| `source` | String |
+| `date` | String |
+| `area_sqkm` | Real/Float |
 
-### Column types
-- `OBJECTID` — Integer64
-- `multipart_count` — Real
-- `area_sqkm` — Real
-- Remaining fields — String/Text
+### Null and Blank-Value Check
 
-### Null values
-No null values were observed in the following important fields:
-- `OBJECTID`
-- `country`
-- `state`
-- `lga`
-- `ward`
-- `area_sqkm`
+There are **no true NULL values** in the attribute fields. However, some text fields contain blank strings:
 
-Some of the alternative-name or supporting metadata fields contains blank/null values where an alternative name or corresponding value does not exist.
+- `lga_alt_names`: **4,614 blank values**
+- `ward_alt_names`: **2,533 blank values**
+- `ward_v1_grid3`: **5,513 blank values**
 
 ### Coverage and completeness
 
@@ -55,44 +60,45 @@ have not yet been fully validated by all relevant government authorities.
 - **Geometry type:** Point
 - **Format:** Vector dataset
 
+### Columns and Data Types
 
-### Columns
-
-The GRID3 health-facility dataset uses a standardized health-facility
-attribute structure. Important fields include:
-
-- `OBJECTID`,`uniqueid`,`latitude`,`longitude`,`country`,`iso`,`state_standard`,`lga_standard`,`ward_standard`,`ward_bdry`,`rd_in_grid3_ward`,`facility_name`,`alt_name`,`settlement_name`,`facility_level`,`facility_type`,`facility_ownership`,`facility_ownership_type`,`functional`,`date_created`,
-- `nhfr_uid`
-- `nhfr_facility_code`
-- 
-- `lga_name_disagreement`
-- 
-- 
-- 
-- 
-- 
-- `facility_level_option`
-- 
-- `geocoordinates_source`
-- `last_updated`
-
-**Note:** The exact v3.0 field list should be copied from  
-`Layer Properties → Fields` because v3.0 contains updates to the health
-facility dataset and may include additional quality-control or spatial
-matching fields.
-
-### Column types
-
-The principal field types are:
-
-- `OBJECTID` — Integer / Integer64
-- `nhfr_uid` — Integer
-- `lga_name_disagreement` — Integer / Boolean-type indicator
-- `ward_name_disagreement` — Integer / Boolean-type indicator
-- `latitude` — Real/Double
-- `longitude` — Real/Double
-- Most descriptive fields such as facility name, state, LGA, ward,
-  ownership and facility level — String/Text
+| Column | Type |
+|---|---|
+| `unique_id` | String |
+| `latitude` | Real/Float |
+| `longitude` | Real/Float |
+| `country` | String |
+| `iso` | String |
+| `state_standard` | String |
+| `lga_standard` | String |
+| `ward_standard` | String |
+| `ward_bdry` | String |
+| `ward_in_grid3_ward_list` | Real/Float |
+| `facility_name` | String |
+| `alt_name` | String |
+| `settlement_name` | String |
+| `facility_level` | String |
+| `facility_type` | String |
+| `facility_ownership` | String |
+| `facility_ownership_type` | String |
+| `functional` | String |
+| `date_created` | String |
+| `sett_ext_type` | String |
+| `mgrs_code` | String |
+| `input_data_record_ids` | String |
+| `input_data_sources` | String |
+| `nhfr_facility_code` | String |
+| `gps_accuracy` | Real/Float |
+| `sett_ext_dist_m` | Real/Float |
+| `dist_ward_grid3_bdry_km` | Real/Float |
+| `flag1` | Real/Float |
+| `flag2` | Real/Float |
+| `flag3` | Real/Float |
+| `flag4` | Real/Float |
+| `flag5` | Real/Float |
+| `flag6` | Real/Float |
+| `issues` | String |
+| `flag_count` | Real/Float |
 
 ### Null values
 
@@ -101,38 +107,61 @@ such as ownership details, alternative administrative matching,
 facility level, registry identifiers, or other facility information may
 not be available for every record.
 
-The following fields should be specifically checked in QGIS for nulls:
+### Null and Blank-Value Check
 
+Missing data occur as both true `NULL` values and blank strings.
+
+| Field | Missing Values |
+|---|---:|
+| `latitude` | 6,004 NULL |
+| `longitude` | 6,004 NULL |
+| `ward_standard` | 15 blank |
+| `ward_bdry` | 1,347 blank |
+| `ward_in_grid3_ward_list` | 1,347 NULL |
+| `alt_name` | 22,695 NULL + 5 blank |
+| `settlement_name` | 40,039 blank |
+| `facility_level` | 7,524 blank |
+| `facility_type` | 3,031 blank |
+| `facility_ownership` | 2,673 blank |
+| `facility_ownership_type` | 11,584 blank |
+| `functional` | 2,673 blank |
+| `date_created` | 19,137 blank |
+| `sett_ext_type` | 2,702 blank |
+| `mgrs_code` | 2,702 blank |
+| `nhfr_facility_code` | 37,715 blank |
+| `gps_accuracy` | 19,256 NULL |
+| `dist_ward_grid3_bdry_km` | 35,989 NULL |
+| `flag1` | 41,756 NULL |
+| `flag2` | 41,104 NULL |
+| `flag3` | 37,618 NULL |
+| `flag4` | 36,338 NULL |
+| `flag5` | 36,916 NULL |
+| `flag6` | 36,049 NULL |
+| `issues` | 26,439 blank |
+
+The following important fields are fully populated:
+
+- `unique_id`
+- `country`
+- `iso`
+- `state_standard`
+- `lga_standard`
 - `facility_name`
-- `state`
-- `lga`
-- `ward`
-- `latitude`
-- `longitude`
-- `nhfr_facility_code`
-- `ownership`
-- `facility_level`
-
-**Recorded null result:** **[ENTER YOUR QGIS NULL CHECK RESULT HERE]**
+- `input_data_record_ids`
+- `input_data_sources`
+- `sett_ext_dist_m`
+- `flag_count`
 
 ### Coverage and completeness
 
-The health-facility points provide coverage for the study area and can be
-used to examine the spatial distribution and accessibility of health
-services.
-
-However, the dataset should not be interpreted as a guaranteed complete
-register of every existing health facility. GRID3 describes the health
-facility dataset as operational and non-exhaustive.
-
-The v3.0 release currently covers 24 Nigerian states, including the
-Federal Capital Territory, rather than all 36 states plus the FCT.
+The health-facility points provide coverage for the study area and it can be used to examine the spatial distribution and accessibility of health services.
+However, the dataset should not be interpreted as a guaranteed complete register of every existing health facility. GRID3 describes the health facility dataset as operational and non-exhaustive.
 
 ---
 
 ## 3. GRID3 Nigeria Gridded Population v3.0
 
-- **Source:** GRID3 / WorldPop
+- **Source:** GRID3 DATA HUB https://data.grid3.org/maps/6966d625aea0488496d01debd3bb80f9/about 
 - **Dataset version:** v3.0
 - **Release:** August 2025
 - **Downloaded:** 13 September 2026
@@ -143,140 +172,81 @@ Federal Capital Territory, rather than all 36 states plus the FCT.
 - **Geometry:** Raster grid cells/pixels rather than vector geometry
 
 ### Rows and columns
-
 Because this is a raster dataset, "rows" do not refer to individual
 vector features.
 
 The appropriate values to record are the raster dimensions:
 
-- **Raster columns/width:** **[ENTER VALUE FROM QGIS]**
-- **Raster rows/height:** **[ENTER VALUE FROM QGIS]**
-- **Number of bands:** **[ENTER VALUE FROM QGIS]**
-
-These values can be found under:
-
-`Layer Properties → Information`
+- **Raster width:** **14392**
+- **Raster height:** **11532**
+- **Number of bands:** **1**
 
 ### Columns/fields
 
-A raster does not have ordinary vector attribute columns such as
-`state`, `lga`, or `ward`.
+A raster does not have ordinary vector attribute columns. Instead, each raster cell contains a population estimate.
 
-Instead, each raster cell contains a population estimate.
-
-The principal raster band represents estimated population counts for
-approximately 100 m grid cells.
+The principal raster band represents estimated population counts for approximately 100 m grid cells.
 
 ### Data type
 
-- **Raster data type:** **[ENTER EXACT QGIS DATA TYPE, e.g. Float32]**
-- Pixel values represent estimated population counts.
-
-### Null / NoData values
-
-The raster may contain `NoData` cells outside the valid population
-surface or national/study-area extent.
-
-`NoData` should not automatically be interpreted as zero population.
-A value of `0` and a `NoData` value have different meanings and should
-be treated separately during analysis.
+- **Raster data type:** **Float32**
 
 ### Coverage and completeness
 
-The population surface provides nationwide coverage and therefore
-covers the study LGA.
+The population surface provides nationwide coverage and therefore covers the study LGA.
 
-No obvious geographic gaps should occur within the study area provided
-the correct Nigeria v3.0 raster has been loaded and clipped correctly.
+No obvious geographic gaps should occur within the study area provided the correct Nigeria v3.0 raster has been loaded and clipped correctly.
 
-The values are modelled population estimates rather than direct census
-counts and should therefore be interpreted as estimates.
+The values are modelled population estimates rather than direct census counts and should therefore be interpreted as estimates.
 
 ---
 
-## 4. GRID3 Nigeria Operational LGA Boundaries
+## 4. GRID3 Nigeria Operational LGA Boundaries 
 
-- **Source:** GRID3 Data Hub
+- **Source:** GRID3 Data Hub https://data.grid3.org/datasets/GRID3::grid3-nga-operational-lga-boundaries/about 
 - **Dataset:** GRID3 Nigeria Operational LGA Boundaries
 - **Number of features/rows:** 774
 - **Geometry type:** Polygon / MultiPolygon
 - **Format:** Vector dataset
 - **Geographic coverage:** Nigeria
 
-### Version/date note
+### Columns and Data Types
 
-The local project copy has been identified as a September 2025 layer/copy.
+| Column | Type |
+|---|---|
+| `globalid` | String |
+| `uniq_id` | Integer32 |
+| `timestamp` | DateTime |
+| `editor` | String |
+| `lganame` | String |
+| `lgacode` | String |
+| `statename` | String |
+| `statecode` | String |
+| `source` | String |
+| `amapcode` | String |
 
-However, the official GRID3 catalogue currently identifies the nationwide
-Operational LGA Boundaries product as the December 2020 product, which was
-released in March 2021.
+### Null and Blank-Value Check
 
-Therefore, September 2025 should only be recorded as the dataset version
-date if this is explicitly stated in the metadata of the downloaded file.
-Otherwise, it should be recorded as the local download/update date.
+There are **no true NULL values** in the attribute fields.
 
-### Columns
+Only one field contains blank values:
 
-The operational LGA boundary dataset contains the following principal
-fields:
+- `amapcode`: **10 blank values**
 
-- `OBJECTID`
-- `globalid`
-- `uniq_id`
-- `timestamp`
-- `editor`
-- `lganame`
-- `lgacode`
-- `statename`
-- `statecode`
-- `source`
-- `amapcode`
-- `Shape__Area`
-- `Shape__Length`
-
-Depending on the downloaded file format, QGIS may display minor naming
-differences for the geometry-derived area and length fields.
-
-### Column types
-
-- `OBJECTID` — Integer / Object ID
-- `globalid` — String/Text
-- `uniq_id` — Integer
-- `timestamp` — Date/DateTime
-- `editor` — String/Text
-- `lganame` — String/Text
-- `lgacode` — String/Text
-- `statename` — String/Text
-- `statecode` — String/Text
-- `source` — String/Text
-- `amapcode` — String/Text
-- `Shape__Area` — Real/Double
-- `Shape__Length` — Real/Double
-
-### Null values
-
-The key administrative fields that should be checked for null values are:
+The important administrative fields are fully populated:
 
 - `lganame`
 - `lgacode`
 - `statename`
 - `statecode`
-
-Supporting fields such as editor, timestamp, source or other metadata
-fields may permit null values.
-
-**Recorded null result:** **[ENTER YOUR QGIS NULL CHECK RESULT HERE]**
 
 ### Coverage and completeness
 
 The layer contains the 774 Local Government Areas of Nigeria and provides
-complete national LGA coverage.
-
-It therefore covers the study LGA completely, with no obvious spatial
+complete national LGA coverage. It therefore covers MY study LGA completely, with no obvious spatial
 gap expected within the study area.
 
-The boundaries are operational GIS boundaries and should not necessarily
-be interpreted as legally authoritative cadastral boundaries.
+The boundaries are operational GIS boundaries and should not necessarily be interpreted as legally authoritative cadastral boundaries.
 
 ---
 
