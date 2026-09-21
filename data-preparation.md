@@ -70,7 +70,7 @@ The five quality criteria considered are:
 
 - **ATTRIBUTE ACCURACY:** Each valid raster cell contains an **estimated population count**, not a binary settled/unsettled value. Values can contain decimals or fractions of a person because the population surface is statistically modelled. These fractional values are expected and should be summed across multiple cells rather than rounded individually. The dataset contains only positive population estimates in valid cells, ranging from approximately 0.67 to 1,204.35 persons per cell.
 
-- **FITNESS FOR PURPOSE:** **Suitable for the project.** Unlike the previously uploaded master-grid raster, this dataset contains actual estimated population counts and can therefore be used to estimate how many residents live more than 2 km from the nearest mapped healthcare facility. The appropriate workflow is to identify population cells outside the 2 km health-facility coverage areas, sum their population values, and aggregate the results by GRID3 operational ward. This directly supports the project question of identifying which AMAC wards have the greatest number of residents living more than 2 km from a mapped healthcare facility.
+- **FITNESS FOR PURPOSE:** **Suitable for the project.** This dataset contains actual estimated population counts and can therefore be used to estimate how many residents live more than 2 km from the nearest mapped healthcare facility. The appropriate workflow is to identify population cells outside the 2 km health-facility coverage areas, sum their population values, and aggregate the results by GRID3 operational ward. This directly supports the project question of identifying which AMAC wards have the greatest number of residents living more than 2 km from a mapped healthcare facility.
 
 ### Important Interpretation Note
 
@@ -135,7 +135,7 @@ rather than:
 |---|---|---|---|---|
 | GRID3 Operational Wards v3.0 | Good for AMAC | Very recent | Valid geometry; minor mismatch with older LGA boundary | **Suitable** |
 | GRID3 Health Facilities v3.0 | Limited by missing coordinates | Recent source, but individual verification dates vary | 265 AMAC-labelled records cannot be mapped | **Usable with limitation** |
-| Population Master Grid | Complete spatial coverage | Current project version | Approx. 100 m grid | **Not suitable for population counts; replace with gridded population raster** |
+| Population Master Grid | Complete spatial coverage | Current project version | Approx. 100 m grid | **Suitable for population estimation** |
 | GRID3 LGA Boundaries | Complete | Older, mainly 2019–2020 | Valid geometry but differs from newer ward boundary | **Suitable for defining/selecting AMAC** |
 | OSM Tertiary Roads | Incomplete as a full road network | September 2026 extraction | Valid geometry; satellite verification still required | **Suitable as map context; not sufficient for network-access analysis** |
 
