@@ -141,3 +141,49 @@ rather than:
 
 ---
 
+#  DATA PREPARATION
+
+---
+
+## CRS and preparation
+
+- All source layers arrived in **EPSG:4326 — WGS 84**.
+- Study area: **Abuja Municipal Area Council (AMAC), FCT Abuja**.
+- AMAC study boundary created by selecting the **12 AMAC wards** from GRID3 Nigeria Operational Wards v3.0 and dissolving them into one study-area polygon.
+- All working layers clipped to the AMAC study boundary:
+  - GRID3 Operational Wards v3.0
+  - GRID3 Health Facilities v3.0
+  - GRID3 / WorldPop Gridded Population v3.0
+  - GRID3 Operational LGA Boundaries
+  - OSM `highway=tertiary` roads
+- All clipped working layers reprojected to **EPSG:32632 — WGS 84 / UTM Zone 32N** for distance, area and length calculations.
+- **Area check:** dissolved AMAC operational wards = **1,446.57 km²**.
+- The older GRID3 AMAC LGA polygon measures **1,475.63 km²**, about **29.06 km² larger** than the dissolved v3.0 ward boundary. The difference reflects the mismatch between the older LGA boundary and the newer operational ward boundaries.
+- The 12 AMAC ward polygons together cover **1,446.57 km²**.
+- After clipping to the ward-derived AMAC study area, **252 mapped health-facility points** fall within the study area.
+- After clipping, **550 OSM tertiary-road features** remain within AMAC, with a combined length of approximately **376.45 km**.
+- The population raster was clipped to the same AMAC study boundary and should be analysed using its population values rather than treating it as a polygon-area layer.
+- Polygon area calculated in square kilometres using `$area / 1000000` after reprojection to EPSG:32632.
+- Road length calculated in kilometres using `$length / 1000` after reprojection to EPSG:32632.
+- Point layers such as health facilities do not have meaningful area values; feature count is recorded instead.
+- Raw source files remain unchanged. All clipped and reprojected working files are stored separately in `data/processed/`.
+
+### AMAC ward areas after reprojection to EPSG:32632
+
+| Ward | Area (km²) |
+|---|---:|
+| City Center 1 | 91.41 |
+| Garki 1 | 78.44 |
+| Gui | 250.99 |
+| Gwagwa | 57.29 |
+| Gwarinpa | 138.71 |
+| Jiwa | 116.94 |
+| Kabusa | 214.16 |
+| Karshi 1 | 272.00 |
+| Karu | 27.33 |
+| Nyanya 1 | 16.49 |
+| Orozo | 158.62 |
+| Wuse | 24.21 |
+| **Total AMAC ward area** | **1,446.57** |
+
+
