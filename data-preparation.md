@@ -116,7 +116,7 @@ rather than:
 - All 843 features have `highway = tertiary`.
 - **COMPLETENESS:** The dataset is deliberately incomplete as a representation of the entire road network because only roads tagged `highway=tertiary` were extracted. Primary, secondary, residential, service, unclassified and other roads that people may use to reach health facilities are not included.
 - **CURRENCY:** OpenStreetMap is continuously edited, so this dataset represents the condition of OSM at the time it was extracted in **September 2026**. Future OSM edits will not automatically appear in the saved GeoPackage.
-- **POSITIONAL ACCURACY:** All 843 road features have valid line geometry and the AMAC roads fall within the expected FCT geographic area. However, their exact alignment with real roads has not yet been independently verified against satellite imagery. A visual satellite-imagery check should therefore be completed before using the roads for detailed routing.
+- **POSITIONAL ACCURACY:** All 843 road features have valid line geometry, and the AMAC roads fall within the expected FCT geographic area. However, their exact alignment with real roads has not yet been independently verified against satellite imagery. A visual satellite-imagery check should therefore be completed before using the roads for detailed routing.
 - **ATTRIBUTE ACCURACY:** The main `highway` attribute is consistent because every feature is classified as `tertiary`. However, many optional road attributes are incomplete. Among the **554 tertiary-road features intersecting AMAC**, approximately:
   - **25.6%** have a road `name`;
   - **20.4%** have a `surface` value;
@@ -157,9 +157,9 @@ rather than:
   - GRID3 Operational LGA Boundaries
   - OSM `highway=tertiary` roads
 - All clipped working layers reprojected to **EPSG:32632 — WGS 84 / UTM Zone 32N** for distance, area and length calculations.
-- **Area check:** dissolved AMAC operational wards = **1,446.57 km²**.
-- The older GRID3 AMAC LGA polygon measures **1,475.63 km²**, about **29.06 km² larger** than the dissolved v3.0 ward boundary. The difference reflects the mismatch between the older LGA boundary and the newer operational ward boundaries.
-- The 12 AMAC ward polygons together cover **1,446.57 km²**.
+- **Area check:** dissolved AMAC operational wards = **1,446.58 km²**.
+- The older GRID3 AMAC LGA polygon measures **1,475.68 km²**, about **29.06 km² larger** than the dissolved v3.0 ward boundary. The difference reflects the mismatch between the older LGA boundary and the newer operational ward boundaries.
+- The 12 AMAC ward polygons together cover **1,446.58 km²**.
 - After clipping to the ward-derived AMAC study area, **252 mapped health-facility points** fall within the study area.
 - After clipping, **550 OSM tertiary-road features** remain within AMAC, with a combined length of approximately **376.45 km**.
 - The population raster was clipped to the same AMAC study boundary and should be analysed using its population values rather than treating it as a polygon-area layer.
@@ -172,18 +172,18 @@ rather than:
 
 | Ward | Area (km²) |
 |---|---:|
-| City Center 1 | 91.41 |
-| Garki 1 | 78.44 |
-| Gui | 250.99 |
-| Gwagwa | 57.29 |
-| Gwarinpa | 138.71 |
-| Jiwa | 116.94 |
-| Kabusa | 214.16 |
-| Karshi 1 | 272.00 |
+| City Center 1 | 91.42 |
+| Garki 1 | 78.45 |
+| Gui | 250.95 |
+| Gwagwa | 57.28 |
+| Gwarinpa | 138.72 |
+| Jiwa | 116.93 |
+| Kabusa | 214.17 |
+| Karshi 1 | 272.03 |
 | Karu | 27.33 |
 | Nyanya 1 | 16.49 |
-| Orozo | 158.62 |
+| Orozo | 158.6 |
 | Wuse | 24.21 |
-| **Total AMAC ward area** | **1,446.57** |
+| **Total AMAC ward area** | **1,446.58** |
 
 
