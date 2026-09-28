@@ -105,3 +105,46 @@ EPSG:4326 – WGS 84
 
 Because EPSG:4326 uses geographic coordinates measured in degrees, it is not appropriate for directly calculating distances such as 2 km or accurate areas in square kilometres.
 I therefore prepared the datasets through clipping and reprojection.
+I first clipped all geographic datasets using the AMAC boundary. The cleaned and clipped datasets were reprojected to:
+WGS 84 / UTM Zone 32N – EPSG:32632
+
+This CRS uses metres, which makes it suitable for the distance and area calculations required by my project.
+The resulting AMAC study area was approximately:
+1,446.57 km²
+
+By the end of Week 3, I had a consistent set of clipped and projected datasets ready for spatial analysis.
+
+---
+
+# Week 4 – Spatial Operations and Analysis
+
+---
+
+The final week of month one marked the beginning of the actual spatial analysis.
+The key part of my research question is the phrase:
+"living more than 2 km from the nearest mapped healthcare facility"
+
+### **The Operation**
+
+Buffered the health facilities by 2000m, dissolved into one shape, then found which wards have areas falling outside it.
+
+### **Why I Used a Buffer**
+
+A buffer allows me to create an area extending a specified distance around each healthcare facility.
+Since my project defines healthcare accessibility using a distance of 2 km, I created a:
+2,000 metre buffer around each mapped healthcare facility.
+
+---
+
+### **What I wrote down as expectation statement**
+
+---
+
+I expect the 2 km buffer operation to produce buffer polygons around all mapped healthcare facilities in and around AMAC, but just one buffer feature as output because I set it to dissolve, representing the combined geographic area of AMAC within 2km of at least one mapped health facility.
+
+What I Got
+The buffer operation successfully produced 2 km accessibility zones around the healthcare facility points. I obtained a combined healthcare-accessibility layer in which overlapping buffers were merged.
+
+### The Result
+
+
