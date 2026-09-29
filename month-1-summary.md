@@ -124,9 +124,9 @@ The final week of month one marked the beginning of the actual spatial analysis.
 The key part of my research question is the phrase:
 "living more than 2 km from the nearest mapped healthcare facility"
 
-### **The Operation**
+## **The Operation**
 
-Buffered the health facilities by 2000m, dissolved into one shape, then found which wards have areas falling outside it.
+Buffered the health facilities by 2000m, dissolved into one shape, then found which wards have areas falling outside it using difference, and calculated their areas.
 
 ### **Why I Used a Buffer**
 
@@ -142,9 +142,42 @@ Since my project defines healthcare accessibility using a distance of 2 km, I cr
 
 I expect the 2 km buffer operation to produce buffer polygons around all mapped healthcare facilities in and around AMAC, but just one buffer feature as output because I set it to dissolve, representing the combined geographic area of AMAC within 2km of at least one mapped health facility.
 
-What I Got
-The buffer operation successfully produced 2 km accessibility zones around the healthcare facility points. I obtained a combined healthcare-accessibility layer in which overlapping buffers were merged.
+---
 
-### The Result
+## The Result
 
+---
 
+### **What I Got**
+
+The buffer operation successfully produced 2 km accessibility zones around the healthcare facility points. I obtained a combined healthcare-accessibility layer in which overlapping buffers were merged. Then the difference operation produced polygons of all the AMAC areas outside the 2km buffer. These polygons now represent the geographic areas that will be investigated further to determine how many people live within them.
+
+---
+## Expected vs Actual Results
+
+---
+
+| Operation |	What I Expected |	What I Got |
+|---|---|---|
+| Buffer |	A dissolved 2 km polygon around healthcare facilities	| A single feature 2km accessibility zones around facility points |
+| Difference |	Portions of AMAC outside the buffer	| Polygons representing areas more than 2 km from mapped facilities |
+| Area Calculation	| Area of uncovered locations in km² |	Calculated area values for the uncovered polygons |
+
+In summary, the operations behaved largely as expected and provided the spatial foundation required for answering the project question.
+
+**What Surprised Me**
+
+My biggest shock was the realisation that the healthcare facility dataset contained records without valid geometry. This reinforced the importance of examining dataset quality before beginning analysis.
+I also observed how strongly the choice of coordinate reference system affects GIS operations. A buffer value of 2000 only represents 2,000 metres when the data is stored in an appropriate projected CRS. Performing the same operation in EPSG:4326 would incorrectly interpret the distance in degrees.
+
+---
+## The Four Checks 
+
+---
+
+I also carried out the four checks immediately after running each of my operations. 
+
+- I looked at the map to confirm location accuracy
+- Checked and counted the number of rows and features to make sure it tallied with my expected result.
+- Since I had one dissolved feature, I checked it easily
+- And then finally determined if there was a geometry
