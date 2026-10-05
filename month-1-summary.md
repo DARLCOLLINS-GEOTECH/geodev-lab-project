@@ -181,3 +181,26 @@ I also carried out the four checks immediately after running each of my operatio
 - Checked and counted the number of rows and features to make sure it tallied with my expected result.
 - Since I had one dissolved feature, I checked it easily
 - And then finally determined if there was a geometry
+
+
+# Month 2: Python Development Foundations
+
+## Week 5: Set Up Python, VS Code and Terminal — `hello.py` Runs
+
+Week 5 marked the beginning of **Month 2**, with a focus on establishing the Python development environment needed for subsequent programming and development tasks.
+
+### Major Tasks Completed
+
+* Set up and verified **Python** through the terminal.
+* Practised basic **terminal/PowerShell** commands, including checking the Python version and navigating directories.
+* Created the required **development (`dev`) folder** and organised the project workspace.
+* Created a **screenshots folder** to document the learning activities.
+* Set up the project in **Visual Studio Code (VS Code)**.
+* Installed and configured the **Python extension** in VS Code.
+* Opened and verified the **integrated terminal** in VS Code.
+* Created and executed a basic **`hello.py`** Python program.
+
+### Result
+
+I successfully established a functional Python development environment, with **Python, VS Code, and the terminal working together correctly**. The successful execution of `hello.py` confirmed that the environment was ready for the next stages of Python learning.
+
