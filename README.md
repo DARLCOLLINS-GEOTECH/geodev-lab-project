@@ -199,3 +199,24 @@ MONTH 2
     Run hello.py successfully
     ↓
     Establish foundation for programmable geospatial workflows
+```
+
+## Week 6 — Set Up a Python Project with `uv` and Install Pandas
+
+Week 6 focused on managing a Python project using **uv** and installing **Pandas** for data analysis. I also created a simple verification script to confirm that Pandas was installed correctly.
+
+### Major Tasks
+
+- Set up the Python project using `uv`.
+- Added and installed the **Pandas** library as a project dependency.
+- Created a `check.py` Python script to verify the installed Pandas version.
+- Executed the script to print the Pandas version in the terminal.
+
+### Result
+
+Successfully configured a Python project with `uv`, installed Pandas, and verified the installation by running `check.py` to display the installed Pandas version.
+
+**Key Files:**
+- [`pyproject.toml`](pyproject.toml) — Project configuration and dependency management.
+- [`check.py`](check.py) — Script for verifying the installed Pandas version.
+
