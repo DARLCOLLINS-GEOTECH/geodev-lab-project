@@ -1,6 +1,5 @@
 
 
-
 # GeoDev Lab Africa Project
 
 ## AMAC Healthcare Accessibility Analysis
@@ -27,6 +26,10 @@ The project progresses from:
 | **Month 1** | **Week 3** | Prepare data through clipping and reprojection | AMAC datasets prepared for spatial analysis |
 | **Month 1** | **Week 4** | Perform spatial operations and analysis | 2 km healthcare accessibility zones and uncovered areas produced |
 | **Month 2** | **Week 5** | Set up Python, VS Code and terminal | Python development environment established and `hello.py` successfully executed |
+| **Month 2** | **Week 6** | Set up the project with `uv`, installed Pandas, and verified its version using `check.py` | Pandas and Python packages successfully installed and active |
+| **Month 2** | **Week 7** | Python Fundamentals and Error Handling | Successfully applied Python fundamentals to read, process and classify ward data while developing practical error-diagnosis and debugging skills |
+| **Month 2** | **Week 8** | Inspecting and Summarising AMAC Wards Data with Python | Successfully inspected and summarised AMAC operational wards' area data using Python, connecting the earlier QGIS spatial analysis workflow with programmatic data analysis |
+| **Month 2** | **Week 9** | 
 
 ---
 
@@ -200,6 +203,7 @@ MONTH 2
     ↓
     Establish foundation for programmable geospatial workflows
 ```
+---
 
 ## Week 6 — Set Up a Python Project with `uv` and Install Pandas
 
@@ -219,4 +223,52 @@ Successfully configured a Python project with `uv`, installed Pandas, and verifi
 **Key Files:**
 - [`pyproject.toml`](pyproject.toml) — Project configuration and dependency management.
 - [`check.py`](check.py) — Script for verifying the installed Pandas version.
+
+---
+
+## Week 7 — Python Fundamentals and Error Handling
+
+Week 7 focused on understanding six core Python concepts and applying them in a practical data analysis task using `analyse.py`.
+
+### Major Tasks
+
+- Learned the six fundamental Python concepts:
+  - **Variables** — storing and managing values.
+  - **Data Types** — understanding different kinds of data.
+  - **Lists** — storing collections of values.
+  - **Loops** — iterating through data.
+  - **Conditions** — applying logic to make decisions.
+  - **Functions** — organising reusable blocks of code.
+- Created and worked with the `analyse.py` script.
+- Read `wards.csv` into Python for analysis.
+- Converted each ward's area value into the appropriate numerical format.
+- Used conditions to classify each ward based on its area.
+- Practised reading and understanding error messages calmly to identify and fix problems during execution.
+
+### Result
+
+Successfully applied Python fundamentals in a practical data analysis task. The `analyse.py` script reads `wards.csv`, converts ward area values, and classifies each ward. This exercise strengthened my understanding of Python's core concepts and helped me develop a more systematic approach to troubleshooting errors.
+
+---
+
+## Week 8 — Inspecting and Summarising AMAC Wards Data with Python
+
+Week 8 focused on using Python to inspect and summarise the **Abuja Municipal Area Council (AMAC) operational wards dataset**. The dataset was exported in CSV format from the Month 1 QGIS project and used as input for Python-based data inspection and analysis.
+
+### Major Tasks
+
+- Exported the AMAC operational wards data from the Month 1 QGIS project into **CSV format**.
+- Imported and inspected the exported CSV dataset using Python.
+- Examined the dataset's structure, columns and available attributes.
+- Used Python to inspect the ward records and their corresponding area values.
+- Summarised the area information for the operational wards within AMAC.
+- Connected the Python data analysis workflow to the spatial data preparation and analysis previously completed in QGIS.
+
+### Result
+
+Successfully used Python to inspect and summarise the **area of operational wards within Abuja Municipal Area Council (AMAC)** using data exported from the Month 1 QGIS project.
+
+This exercise strengthened my ability to transition between GIS-generated datasets and Python-based data analysis, providing a foundation for further geospatial data processing and statistical exploration.
+
+---
 
